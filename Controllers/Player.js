@@ -46,25 +46,6 @@ export const AllPlayers = async (req, res) => {
   }
 };
 
-export const combinedData = async (req, res) => {
-  try {
-    const data = await Player.aggregate([
-      {
-        $lookup: {
-          from: "PlayerStsts",
-          localField: "_id",
-          foreignField: "stats",
-          as: "res",
-        },
-      },
-    ]);
-    console.log(data);
-    res.status(200).json({ data });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
 export const FindPlayer = async (req, res) => {
   try {
     const { id } = req.params;
