@@ -7,7 +7,7 @@ import request from "supertest";
 import PlayerRoute from "./Routes/Player.js";
 
 dotenv.config();
-
+const PORT = process.env.PORT || 3001;
 export const app = express();
 
 app.use(express.json());
@@ -31,9 +31,9 @@ mongoose.connection.on("connected", () => {
   console.log("MongoDB connected");
 });
 
-app.listen(3000, () => {
-  console.log("Connected to backend");
+app.listen(PORT, () => {
   connect();
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 export default {};
