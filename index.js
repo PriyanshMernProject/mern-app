@@ -33,7 +33,7 @@ mongoose.connection.on("connected", () => {
 
 app.listen(PORT, () => {
   connect();
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on:${PORT}`);
 });
 
 export default {};
